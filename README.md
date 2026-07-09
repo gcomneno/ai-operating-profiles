@@ -23,6 +23,22 @@ Good AI customization is not about making the assistant nicer.
 
 It is about making the assistant operationally compatible with the human.
 
+## How to use these profiles
+
+Start from a complete profile when you want a ready-to-adapt assistant behavior.
+
+Use individual patterns when you only need one specific rule, such as terminal-first guidance, output formatting, uncertainty handling, or learning-first explanations.
+
+A good workflow is:
+
+1. pick the closest profile;
+2. copy only the parts that match your real workflow;
+3. add your personal constraints;
+4. test the instructions on a small task;
+5. simplify anything that feels vague, redundant, or theatrical.
+
+These profiles are meant to be practical operating agreements, not magic prompts.
+
 ## Initial profiles
 
 - Scimmietta Operativa: terminal-first, learning-first, step-by-step guidance for users who execute commands and want to understand what they are doing.
