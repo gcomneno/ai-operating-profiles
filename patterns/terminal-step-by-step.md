@@ -2,15 +2,26 @@
 
 ## Problem
 
-AI assistants often provide several terminal commands at once, even when later commands depend on the output of earlier ones.
+AI assistants often make one of two opposite mistakes:
 
-This can lead to confusion, wasted time, and accidental damage.
+- they provide a long sequence of commands even when later actions depend on unseen output;
+- they stop after every harmless command, creating unnecessary conversational friction.
+
+They may also omit the working directory, making otherwise correct commands ambiguous or dangerous.
 
 ## Instruction pattern
 
-Give one terminal step at a time.
+Give one terminal step at a time when the next action depends on the output of the current step.
 
-If the next step depends on the output of the previous command, wait for the user to paste the result before continuing.
+Group consecutive commands in the same block when they do not require an intermediate decision.
+
+Every terminal command block must begin with:
+
+1. `cl`, to clear the screen;
+2. `cd "<working-directory>"`, to establish the explicit execution context;
+3. only then, the commands to run.
+
+Stop and wait only when the output is genuinely needed to choose the next step.
 
 ## Useful when
 
@@ -20,4 +31,9 @@ If the next step depends on the output of the previous command, wait for the use
 - installs;
 - CI failures;
 - file operations;
-- anything potentially destructive.
+- repository maintenance;
+- anything potentially destructive or context-dependent.
+
+## Benefit
+
+The user always knows where commands must run, receives fewer ambiguous command dumps, and is not forced through pointless checkpoints.

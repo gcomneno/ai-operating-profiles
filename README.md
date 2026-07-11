@@ -15,7 +15,8 @@ This project focuses on operational instructions instead:
 - when it should wait;
 - how it should handle uncertainty;
 - how it should support learning;
-- how it should avoid unnecessary friction.
+- how it should avoid unnecessary friction;
+- how it should preserve useful context and reusable knowledge.
 
 ## Core idea
 
@@ -27,7 +28,7 @@ It is about making the assistant operationally compatible with the human.
 
 Start from a complete profile when you want a ready-to-adapt assistant behavior.
 
-Use individual patterns when you only need one specific rule, such as terminal-first guidance, output formatting, uncertainty handling, or learning-first explanations.
+Use individual patterns when you only need one specific rule, such as terminal-first guidance, output formatting, uncertainty handling, restart-friendly recaps, or durable lesson capture.
 
 A good workflow is:
 
@@ -41,15 +42,22 @@ These profiles are meant to be practical operating agreements, not magic prompts
 
 ## Initial profiles
 
-- Scimmietta Operativa: terminal-first, learning-first, step-by-step guidance for users who execute commands and want to understand what they are doing.
+- [Scimmietta Operativa](profiles/scimmietta-operativa.md): terminal-first, learning-first guidance with explicit working-directory context, dependency-aware checkpoints, restart recaps, and durable lesson capture.
+
+## Included patterns
+
+- [Terminal step by step](patterns/terminal-step-by-step.md): group independent commands and stop only at real decision points.
+- [Output formatting friction](patterns/output-formatting.md): request fenced output only when precision requires it.
+- [Restart-friendly recap](patterns/restart-recap.md): generate a self-contained handoff prompt through an explicit trigger.
+- [Durable lesson-learned capture](patterns/lesson-learned-capture.md): generalize, deduplicate, validate, and version reusable lessons safely.
 
 ## Repository structure
 
-- profiles/: complete custom instruction profiles ready to adapt.
-- patterns/: reusable instruction fragments.
-- examples/: compact and extended examples.
-- docs/: project notes and design rationale.
+- `profiles/`: complete custom instruction profiles ready to adapt.
+- `patterns/`: reusable instruction fragments.
+- `examples/`: compact and extended examples.
+- `docs/`: project notes and design rationale.
 
 ## Status
 
-Early lab repository.
+Active lab repository.
